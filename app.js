@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors({
   origin: "*",
   maxAge: 600,
+  credentials: true,
 }));
 
 // Use the routes
