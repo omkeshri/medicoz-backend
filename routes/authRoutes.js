@@ -3,6 +3,7 @@ const collection = require("./MongoDB");
 const bcrypt = require("bcrypt");
 
 
+
 const authRouter = express.Router();
 
 authRouter.post("/login", async (req, res) => {
@@ -22,7 +23,7 @@ authRouter.post("/login", async (req, res) => {
       res.json("notexist");
     }
   } catch (e) {
-    res.json("fail");
+    res.json({error: err});
   }
 });
 
@@ -42,11 +43,13 @@ authRouter.post("/signup", async (req, res) => {
       password: hashedPassword, // Store the hashed password
     };
     
-    await collection.insertMany([data]);
+    await collection.insertOne([data]);
     res.json("Sign Up Successfull");
     
-  } catch (e) {                                       
-    res.json("fail");
+  } catch (err) {                                       
+    res.json({
+      error: err
+    });
   }
 });
 
