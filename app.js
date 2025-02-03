@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-
+require('dotenv').config();
 // Import the routes
 // const razorpayRoutes = require("./routes/razorpayRoutes");
 const authRouter = require("./routes/authRoutes");

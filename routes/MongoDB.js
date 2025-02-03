@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 mongoose
-  .connect("mongodb://0.0.0.0:27017/medicoz")
+  .connect(process.env.MONGODB_URL)
   .then(() => {
     console.log("MongoDB Connected");
   })
