@@ -1,3 +1,5 @@
+
+
 const mongoose = require("mongoose");
 mongoose
   .connect(process.env.MONGODB_URL)
@@ -24,6 +26,5 @@ const newSchema = new mongoose.Schema({
   },
 });
 
-const collection = mongoose.model("users", newSchema);
+module.exports = mongoose.model("User", newSchema);
 
-module.exports = collection;
